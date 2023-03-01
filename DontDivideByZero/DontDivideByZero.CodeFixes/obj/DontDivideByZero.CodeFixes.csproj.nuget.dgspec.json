@@ -1,0 +1,138 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/DontDivideByZero.CodeFixes.csproj": {}
+  },
+  "projects": {
+    "/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/DontDivideByZero.CodeFixes.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/DontDivideByZero.CodeFixes.csproj",
+        "projectName": "DontDivideByZero.CodeFixes",
+        "projectPath": "/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/DontDivideByZero.CodeFixes.csproj",
+        "packagesPath": "/home/zakis/.nuget/packages/",
+        "outputPath": "/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/zakis/Code/SP/DontDivideByZero/NuGet.config",
+          "/home/zakis/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/DontDivideByZero.csproj": {
+                "projectPath": "/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/DontDivideByZero.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.CodeAnalysis.CSharp.Workspaces": {
+              "target": "Package",
+              "version": "[3.3.1, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.113/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/DontDivideByZero.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/DontDivideByZero.csproj",
+        "projectName": "*DontDivideByZero.csproj*",
+        "projectPath": "/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/DontDivideByZero.csproj",
+        "packagesPath": "/home/zakis/.nuget/packages/",
+        "outputPath": "/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/zakis/Code/SP/DontDivideByZero/NuGet.config",
+          "/home/zakis/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.CodeAnalysis.Analyzers": {
+              "target": "Package",
+              "version": "[2.9.8, )"
+            },
+            "Microsoft.CodeAnalysis.CSharp": {
+              "target": "Package",
+              "version": "[3.3.1, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.113/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

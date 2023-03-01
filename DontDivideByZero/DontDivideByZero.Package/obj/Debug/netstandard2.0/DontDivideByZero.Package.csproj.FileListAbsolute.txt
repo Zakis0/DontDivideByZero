@@ -1,0 +1,17 @@
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/bin/Debug/netstandard2.0/tools/install.ps1
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/bin/Debug/netstandard2.0/tools/uninstall.ps1
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/bin/Debug/netstandard2.0/DontDivideByZero.Package.deps.json
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/bin/Debug/netstandard2.0/DontDivideByZero.Package.dll
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/bin/Debug/netstandard2.0/DontDivideByZero.Package.pdb
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/bin/Debug/netstandard2.0/DontDivideByZero.CodeFixes.dll
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/bin/Debug/netstandard2.0/DontDivideByZero.dll
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/bin/Debug/netstandard2.0/DontDivideByZero.CodeFixes.pdb
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/bin/Debug/netstandard2.0/DontDivideByZero.pdb
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/obj/Debug/netstandard2.0/DontDivideByZero.Package.csproj.AssemblyReference.cache
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/obj/Debug/netstandard2.0/DontDivideByZero.Package.GeneratedMSBuildEditorConfig.editorconfig
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/obj/Debug/netstandard2.0/DontDivideByZero.Package.AssemblyInfoInputs.cache
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/obj/Debug/netstandard2.0/DontDivideByZero.Package.AssemblyInfo.cs
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/obj/Debug/netstandard2.0/DontDivideByZero.Package.csproj.CoreCompileInputs.cache
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/obj/Debug/netstandard2.0/DontDivideByZero.Package.csproj.CopyComplete
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/obj/Debug/netstandard2.0/DontDivideByZero.Package.dll
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.Package/obj/Debug/netstandard2.0/DontDivideByZero.Package.pdb

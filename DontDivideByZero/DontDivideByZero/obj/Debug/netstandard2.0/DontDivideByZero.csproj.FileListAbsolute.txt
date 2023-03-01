@@ -1,0 +1,12 @@
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/bin/Debug/netstandard2.0/DontDivideByZero.deps.json
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/bin/Debug/netstandard2.0/DontDivideByZero.dll
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/bin/Debug/netstandard2.0/DontDivideByZero.pdb
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/obj/Debug/netstandard2.0/DontDivideByZero.csproj.AssemblyReference.cache
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/obj/Debug/netstandard2.0/DontDivideByZero.Resources.resources
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/obj/Debug/netstandard2.0/DontDivideByZero.csproj.GenerateResource.cache
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/obj/Debug/netstandard2.0/DontDivideByZero.GeneratedMSBuildEditorConfig.editorconfig
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/obj/Debug/netstandard2.0/DontDivideByZero.AssemblyInfoInputs.cache
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/obj/Debug/netstandard2.0/DontDivideByZero.AssemblyInfo.cs
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/obj/Debug/netstandard2.0/DontDivideByZero.csproj.CoreCompileInputs.cache
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/obj/Debug/netstandard2.0/DontDivideByZero.dll
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero/obj/Debug/netstandard2.0/DontDivideByZero.pdb

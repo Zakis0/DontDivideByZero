@@ -1,0 +1,15 @@
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/bin/Debug/netstandard2.0/DontDivideByZero.CodeFixes.deps.json
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/bin/Debug/netstandard2.0/DontDivideByZero.CodeFixes.dll
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/bin/Debug/netstandard2.0/DontDivideByZero.CodeFixes.pdb
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/bin/Debug/netstandard2.0/DontDivideByZero.dll
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/bin/Debug/netstandard2.0/DontDivideByZero.pdb
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/obj/Debug/netstandard2.0/DontDivideByZero.CodeFixes.csproj.AssemblyReference.cache
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/obj/Debug/netstandard2.0/DontDivideByZero.CodeFixResources.resources
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/obj/Debug/netstandard2.0/DontDivideByZero.CodeFixes.csproj.GenerateResource.cache
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/obj/Debug/netstandard2.0/DontDivideByZero.CodeFixes.GeneratedMSBuildEditorConfig.editorconfig
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/obj/Debug/netstandard2.0/DontDivideByZero.CodeFixes.AssemblyInfoInputs.cache
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/obj/Debug/netstandard2.0/DontDivideByZero.CodeFixes.AssemblyInfo.cs
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/obj/Debug/netstandard2.0/DontDivideByZero.CodeFixes.csproj.CoreCompileInputs.cache
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/obj/Debug/netstandard2.0/DontDivideByZero.CodeFixes.csproj.CopyComplete
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/obj/Debug/netstandard2.0/DontDivideByZero.CodeFixes.dll
+/home/zakis/Code/SP/DontDivideByZero/DontDivideByZero/DontDivideByZero.CodeFixes/obj/Debug/netstandard2.0/DontDivideByZero.CodeFixes.pdb
