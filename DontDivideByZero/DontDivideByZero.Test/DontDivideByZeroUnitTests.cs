@@ -112,5 +112,58 @@ class MyProgram {
                 DiagnosticResult.CompilerError("CS0020").WithLocation(0)
                 );
         }
+        [TestMethod]
+        public async Task SimpleArithmeticSubtractionConst_Diagnostic() {
+            var test = @"
+class MyProgram {
+    static void Main() {
+        const int a = 1;
+        int b = {|#0:1 / (a - a)|};
+    }
+}
+";
+            var expDiag = new DiagnosticResult(DontDivideByZeroAnalyzer.DiagnosticId, DiagnosticSeverity.Error);
+            await VerifyCS.VerifyAnalyzerAsync(
+                test,
+                expDiag.WithLocation(0),
+                DiagnosticResult.CompilerError("CS0020").WithLocation(0)
+            );
+        }
+        
+        [TestMethod]
+        public async Task SimpleArithmeticMultiplicationConst_Diagnostic() {
+            var test = @"
+class MyProgram {
+    static void Main() {
+        const int a = 1;
+        int b = {|#0:1 / (0 * a)|};
+    }
+}
+";
+            var expDiag = new DiagnosticResult(DontDivideByZeroAnalyzer.DiagnosticId, DiagnosticSeverity.Error);
+            await VerifyCS.VerifyAnalyzerAsync(
+                test,
+                expDiag.WithLocation(0),
+                DiagnosticResult.CompilerError("CS0020").WithLocation(0)
+            );
+        }
+        
+        [TestMethod]
+        public async Task DivisionByConstVariable_Diagnostic() {
+            var test = @"
+class MyProgram {
+    static void Main() {
+        const int a = 0;
+        int b = {|#0:1 / a|};
+    }
+}
+";
+            var expDiag = new DiagnosticResult(DontDivideByZeroAnalyzer.DiagnosticId, DiagnosticSeverity.Error);
+            await VerifyCS.VerifyAnalyzerAsync(
+                test,
+                expDiag.WithLocation(0),
+                DiagnosticResult.CompilerError("CS0020").WithLocation(0)
+            );
+        }
     }
 }
