@@ -32,7 +32,11 @@ class MyProgram {
 }
 ";
             var expDiag = new DiagnosticResult(DontDivideByZeroAnalyzer.DiagnosticId, DiagnosticSeverity.Error);
-            await VerifyCS.VerifyAnalyzerAsync(test, expDiag.WithLocation(0), DiagnosticResult.CompilerError("CS0020").WithLocation(0));
+            await VerifyCS.VerifyAnalyzerAsync(
+                test,
+                expDiag.WithLocation(0),
+                DiagnosticResult.CompilerError("CS0020").WithLocation(0)
+                );
         }
         
         [TestMethod]
@@ -49,7 +53,10 @@ class MyProgram {
 }
 ";
             var expDiag = new DiagnosticResult(DontDivideByZeroAnalyzer.DiagnosticId, DiagnosticSeverity.Error);
-            await VerifyCS.VerifyAnalyzerAsync(test, expDiag.WithLocation(0));
+            await VerifyCS.VerifyAnalyzerAsync(
+                test,
+                expDiag.WithLocation(0)
+                );
         }
         
         [TestMethod]
@@ -63,7 +70,11 @@ class MyProgram {
 }
 ";
             var expDiag = new DiagnosticResult(DontDivideByZeroAnalyzer.DiagnosticId, DiagnosticSeverity.Error);
-            await VerifyCS.VerifyAnalyzerAsync(test, expDiag.WithLocation(0), DiagnosticResult.CompilerError("CS0020").WithLocation(0));
+            await VerifyCS.VerifyAnalyzerAsync(
+                test,
+                expDiag.WithLocation(0),
+                DiagnosticResult.CompilerError("CS0020").WithLocation(0)
+                );
         }
         
         [TestMethod]
@@ -77,7 +88,11 @@ class MyProgram {
 }
 ";
             var expDiag = new DiagnosticResult(DontDivideByZeroAnalyzer.DiagnosticId, DiagnosticSeverity.Error);
-            await VerifyCS.VerifyAnalyzerAsync(test, expDiag.WithLocation(0), DiagnosticResult.CompilerError("CS0020").WithLocation(0));
+            await VerifyCS.VerifyAnalyzerAsync(
+                test,
+                expDiag.WithLocation(0),
+                DiagnosticResult.CompilerError("CS0020").WithLocation(0)
+                );
         }
         
         [TestMethod]
@@ -91,7 +106,11 @@ class MyProgram {
 }
 ";
             var expDiag = new DiagnosticResult(DontDivideByZeroAnalyzer.DiagnosticId, DiagnosticSeverity.Error);
-            await VerifyCS.VerifyAnalyzerAsync(test, expDiag.WithLocation(0), DiagnosticResult.CompilerError("CS0020").WithLocation(0));
+            await VerifyCS.VerifyAnalyzerAsync(
+                test,
+                expDiag.WithLocation(0),
+                DiagnosticResult.CompilerError("CS0020").WithLocation(0)
+                );
         }
     }
 }
