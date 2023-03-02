@@ -76,11 +76,11 @@ using Microsoft.CodeAnalysis.Diagnostics;
                         if (tempAssignment.SpanStart > binExp.SpanStart) {
                             break;
                         }
-
+                        
                         if (!tempAssignment.Left.GetFirstToken().Value.Equals(binExp.Right.GetFirstToken().Value)) {
                             continue;
                         }
-
+                        
                         lastVarValue = (int)tempAssignment.Right.GetFirstToken().Value;
                     }
                 }
@@ -89,7 +89,8 @@ using Microsoft.CodeAnalysis.Diagnostics;
                 }
             }
             if (context.SemanticModel.GetConstantValue(binExp.Right).HasValue &&
-                context.SemanticModel.GetConstantValue(binExp.Right).Value.Equals(0)) {
+                context.SemanticModel.GetConstantValue(binExp.Right).Value.Equals(0))
+            {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation()));
             }
         }
