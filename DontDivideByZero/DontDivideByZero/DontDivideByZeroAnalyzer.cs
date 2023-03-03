@@ -64,9 +64,9 @@ class AssignmentNode {
         }
 
         private void AnalyzeNode(SyntaxNodeAnalysisContext context) {
-            var binExp = (BinaryExpressionSyntax)context.Node;
+            var binaryExpression = (BinaryExpressionSyntax)context.Node;
             
-            if (binExp.Right.IsKind(SyntaxKind.IdentifierName)) {
+            if (binaryExpression.Right.IsKind(SyntaxKind.IdentifierName)) {
                 int? lastVarValue = null;
                 foreach (AssignmentNode assignment in _assignmentList) {
                     if (assignment.Value == null) {
@@ -74,7 +74,7 @@ class AssignmentNode {
                     }
                     if (!SymbolEqualityComparer.Default.Equals(
                             assignment.VariableName,
-                            context.SemanticModel.GetSymbolInfo(binExp.Right, context.CancellationToken).Symbol
+                            context.SemanticModel.GetSymbolInfo(binaryExpression.Right, context.CancellationToken).Symbol
                         )) {
                         continue;
                     }
@@ -84,8 +84,8 @@ class AssignmentNode {
                     context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation()));
                 }
             }
-            if (context.SemanticModel.GetConstantValue(binExp.Right).HasValue &&
-                context.SemanticModel.GetConstantValue(binExp.Right).Value.Equals(0))
+            if (context.SemanticModel.GetConstantValue(binaryExpression.Right).HasValue &&
+                context.SemanticModel.GetConstantValue(binaryExpression.Right).Value.Equals(0))
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation()));
             }
