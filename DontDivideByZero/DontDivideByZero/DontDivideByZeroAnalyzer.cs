@@ -1,19 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
+class AssignmentNode {
+    public readonly ISymbol VariableName;
+    public readonly int? Value;
+
+    public AssignmentNode(ISymbol variableName, int? value) {
+        VariableName = variableName;
+        Value = value;
+    }
+    public void PrintInfo() {
+        Console.WriteLine(VariableName?.Name + ' ' + Value);
+    }
+}
+
+
  namespace DontDivideByZero {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class DontDivideByZeroAnalyzer : DiagnosticAnalyzer {
         public const string DiagnosticId = "DontDivideByZero";
         
-        private readonly ArrayList _assignmentExpressions = new ArrayList();
+        private readonly List<AssignmentNode> _assignmentList = new List<AssignmentNode>();
         
         private static readonly LocalizableString Title = new LocalizableResourceString(
-            nameof(Resources.AnalyzerTitle), 
+            nameof(Resources.AnalyzerTitle),
             Resources.ResourceManager, 
             typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(
@@ -53,36 +68,17 @@ using Microsoft.CodeAnalysis.Diagnostics;
             
             if (binExp.Right.IsKind(SyntaxKind.IdentifierName)) {
                 int? lastVarValue = null;
-                foreach (SyntaxNode assignment in _assignmentExpressions) {
-                    if (assignment.IsKind(SyntaxKind.VariableDeclarator)) {
-                        var tempDeclarator = (VariableDeclaratorSyntax)assignment;
-                        
-                        if (tempDeclarator.SpanStart > binExp.SpanStart) {
-                            break;
-                        }
-                        if (tempDeclarator.Initializer == null) {
-                            continue;
-                        }
-
-                        if (!tempDeclarator.GetFirstToken().Value.Equals(binExp.Right.GetFirstToken().Value)) {
-                            continue;
-                        }
-
-                        lastVarValue = (int)((LiteralExpressionSyntax)tempDeclarator.Initializer.Value).Token.Value;
+                foreach (AssignmentNode assignment in _assignmentList) {
+                    if (assignment.Value == null) {
+                        continue;
                     }
-                    else if (assignment.IsKind(SyntaxKind.SimpleAssignmentExpression)) {
-                        var tempAssignment = (AssignmentExpressionSyntax)assignment;
-                        
-                        if (tempAssignment.SpanStart > binExp.SpanStart) {
-                            break;
-                        }
-                        
-                        if (!tempAssignment.Left.GetFirstToken().Value.Equals(binExp.Right.GetFirstToken().Value)) {
-                            continue;
-                        }
-                        
-                        lastVarValue = (int)tempAssignment.Right.GetFirstToken().Value;
+                    if (!SymbolEqualityComparer.Default.Equals(
+                            assignment.VariableName,
+                            context.SemanticModel.GetSymbolInfo(binExp.Right, context.CancellationToken).Symbol
+                        )) {
+                        continue;
                     }
+                    lastVarValue = assignment.Value;
                 }
                 if (lastVarValue == 0) {
                     context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation()));
@@ -96,7 +92,32 @@ using Microsoft.CodeAnalysis.Diagnostics;
         }
 
         private void AddAssignmentNode(SyntaxNodeAnalysisContext context) {
-            _assignmentExpressions.Add(context.Node);
+            if (context.Node.IsKind(SyntaxKind.VariableDeclarator)) {
+                var tempDeclarator = (VariableDeclaratorSyntax)context.Node;
+                int? value = null;
+                
+                if (tempDeclarator.Initializer != null && tempDeclarator.Initializer.Value.IsKind(SyntaxKind.NumericLiteralExpression)) {
+                    value = (int)((LiteralExpressionSyntax)tempDeclarator.Initializer.Value).Token.Value;
+                }
+                
+                _assignmentList.Add(new AssignmentNode(
+                    context.SemanticModel.GetDeclaredSymbol(tempDeclarator, context.CancellationToken),
+                    value
+                ));
+            }
+            else if (context.Node.IsKind(SyntaxKind.SimpleAssignmentExpression)) {
+                var tempAssignment = (AssignmentExpressionSyntax)context.Node;
+                int? value = null;
+                
+                if (tempAssignment.Right.IsKind(SyntaxKind.NumericLiteralExpression)) {
+                    value = (int)tempAssignment.Right.GetFirstToken().Value;
+                }
+                
+                _assignmentList.Add(new AssignmentNode(
+                    context.SemanticModel.GetSymbolInfo(tempAssignment.Left, context.CancellationToken).Symbol,
+                    value
+                ));
+            }
         }
     }
 }

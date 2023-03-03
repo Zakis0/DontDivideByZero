@@ -74,7 +74,23 @@ class MyProgram {
                 test,
                 expDiag.WithLocation(0)
             );
-
+        }
+        
+        [TestMethod]
+        public async Task DivisionByDeclaratorVariable2_Diagnostic() {
+            var test = @"
+class MyProgram {
+    static void Main() {
+        int a = 0;
+        a = {|#0:1 / a|};
+    }
+}
+";
+            var expDiag = new DiagnosticResult(DontDivideByZeroAnalyzer.DiagnosticId, DiagnosticSeverity.Error);
+            await VerifyCS.VerifyAnalyzerAsync(
+                test,
+                expDiag.WithLocation(0)
+            );
         }
 
         [TestMethod]
@@ -85,12 +101,12 @@ class MyProgram {
         int a = 0;
         a = 1;
         int b = {|#0:1 / a|};
+        a = 0;
     }
 }
 ";
             var expDiag = new DiagnosticResult(DontDivideByZeroAnalyzer.DiagnosticId, DiagnosticSeverity.Error);
             await VerifyCS.VerifyAnalyzerAsync(test);
-
         }
 
         [TestMethod]
@@ -109,7 +125,6 @@ class MyProgram {
                 test,
                 expDiag.WithLocation(0)
             );
-
         }
 
         [TestMethod]
@@ -121,12 +136,29 @@ class MyProgram {
         a = 0;
         a = 1;
         int b = {|#0:1 / a|};
+        a = 0;
     }
 }
 ";
             var expDiag = new DiagnosticResult(DontDivideByZeroAnalyzer.DiagnosticId, DiagnosticSeverity.Error);
             await VerifyCS.VerifyAnalyzerAsync(test);
-
+        }
+        
+        [TestMethod]
+        public async Task AssignmentInFunction_noDiagnostic() {
+            var test = @"
+class MyProgram {
+    static int a = 1;
+    static void f() {
+        int a = 0;
+    }
+    static void Main() {
+        int b = {|#0:1 / a|};
+    }
+}
+";
+            var expDiag = new DiagnosticResult(DontDivideByZeroAnalyzer.DiagnosticId, DiagnosticSeverity.Error);
+            await VerifyCS.VerifyAnalyzerAsync(test);
         }
 
         [TestMethod]
@@ -180,7 +212,6 @@ class MyProgram {
 //                 test,
 //                 expDiag.WithLocation(0)
 //             );
-//
 //         }
 
 //         [TestMethod]
