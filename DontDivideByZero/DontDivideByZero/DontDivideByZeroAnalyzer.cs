@@ -59,7 +59,7 @@ class AssignmentNode {
             context.EnableConcurrentExecution();
             
             context.RegisterSyntaxNodeAction(AddAssignmentNode, SyntaxKind.SimpleAssignmentExpression);
-            context.RegisterSyntaxNodeAction(AddAssignmentNode, SyntaxKind.VariableDeclarator);
+            context.RegisterSyntaxNodeAction(AddDeclaratorNode, SyntaxKind.VariableDeclarator);
             context.RegisterSyntaxNodeAction(AnalyzeNode, SyntaxKind.DivideExpression);
         }
 
@@ -74,6 +74,7 @@ class AssignmentNode {
                     }
                     if (!SymbolEqualityComparer.Default.Equals(
                             assignment.VariableName,
+                            // Denominator variable
                             context.SemanticModel.GetSymbolInfo(binaryExpression.Right, context.CancellationToken).Symbol
                         )) {
                         continue;
@@ -85,39 +86,39 @@ class AssignmentNode {
                 }
             }
             if (context.SemanticModel.GetConstantValue(binaryExpression.Right).HasValue &&
-                context.SemanticModel.GetConstantValue(binaryExpression.Right).Value.Equals(0))
-            {
+                context.SemanticModel.GetConstantValue(binaryExpression.Right).Value.Equals(0)
+                ) {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation()));
             }
         }
 
         private void AddAssignmentNode(SyntaxNodeAnalysisContext context) {
-            if (context.Node.IsKind(SyntaxKind.VariableDeclarator)) {
-                var tempDeclarator = (VariableDeclaratorSyntax)context.Node;
-                int? value = null;
-                
-                if (tempDeclarator.Initializer != null && tempDeclarator.Initializer.Value.IsKind(SyntaxKind.NumericLiteralExpression)) {
-                    value = (int)((LiteralExpressionSyntax)tempDeclarator.Initializer.Value).Token.Value;
-                }
-                
-                _assignmentList.Add(new AssignmentNode(
-                    context.SemanticModel.GetDeclaredSymbol(tempDeclarator, context.CancellationToken),
-                    value
-                ));
+            var tempAssignment = (AssignmentExpressionSyntax)context.Node;
+            int? VariableValue = null;
+            
+            if (tempAssignment.Right.IsKind(SyntaxKind.NumericLiteralExpression)) {
+                VariableValue = (int)tempAssignment.Right.GetFirstToken().Value;
             }
-            else if (context.Node.IsKind(SyntaxKind.SimpleAssignmentExpression)) {
-                var tempAssignment = (AssignmentExpressionSyntax)context.Node;
-                int? value = null;
-                
-                if (tempAssignment.Right.IsKind(SyntaxKind.NumericLiteralExpression)) {
-                    value = (int)tempAssignment.Right.GetFirstToken().Value;
-                }
-                
-                _assignmentList.Add(new AssignmentNode(
-                    context.SemanticModel.GetSymbolInfo(tempAssignment.Left, context.CancellationToken).Symbol,
-                    value
-                ));
+            _assignmentList.Add(new AssignmentNode(
+                // VariableName
+                context.SemanticModel.GetSymbolInfo(tempAssignment.Left, context.CancellationToken).Symbol,
+                VariableValue
+            ));
+        }
+        private void AddDeclaratorNode(SyntaxNodeAnalysisContext context) {
+            var tempDeclarator = (VariableDeclaratorSyntax)context.Node;
+            int? VariableValue = null;
+            
+            if (tempDeclarator.Initializer != null &&
+                tempDeclarator.Initializer.Value.IsKind(SyntaxKind.NumericLiteralExpression)
+                ) {
+                VariableValue = (int)((LiteralExpressionSyntax)tempDeclarator.Initializer.Value).Token.Value;
             }
+            _assignmentList.Add(new AssignmentNode(
+                // VariableName
+                context.SemanticModel.GetDeclaredSymbol(tempDeclarator, context.CancellationToken),
+                VariableValue
+            ));
         }
     }
 }
